@@ -1,0 +1,256 @@
+VALUE,CLASS_NAME,ID,FAMILY,FID,A_N
+0,Background,0,NON-AG,0,N
+7,non-specified,0,NON-AG,0,N
+8,non-specified,0,NON-AG,0,N
+9,non-specified,0,NON-AG,0,N
+15,non-specified,0,NON-AG,0,N
+16,non-specified,0,NON-AG,0,N
+17,non-specified,0,NON-AG,0,N
+18,non-specified,0,NON-AG,0,N
+19,non-specified,0,NON-AG,0,N
+20,non-specified,0,NON-AG,0,N
+40,non-specified,0,NON-AG,0,N
+61,Fallow/Idle Cropland,0,NON-AG,0,N
+62,non-specified,0,NON-AG,0,N
+63,Forest,0,NON-AG,0,N
+64,Shrubland,0,NON-AG,0,N
+65,Barren,0,NON-AG,0,N
+73,non-specified,0,NON-AG,0,N
+78,non-specified,0,NON-AG,0,N
+79,non-specified,0,NON-AG,0,N
+80,non-specified,0,NON-AG,0,N
+81,Clouds/No Data,0,NON-AG,0,N
+82,Developed,0,NON-AG,0,N
+83,Water,0,NON-AG,0,N
+84,non-specified,0,NON-AG,0,N
+85,non-specified,0,NON-AG,0,N
+86,non-specified,0,NON-AG,0,N
+87,Wetlands,0,NON-AG,0,N
+88,Nonag/Undefined,0,NON-AG,0,N
+89,non-specified,0,NON-AG,0,N
+90,non-specified,0,NON-AG,0,N
+91,non-specified,0,NON-AG,0,N
+92,Aquaculture,0,NON-AG,0,N
+93,non-specified,0,NON-AG,0,N
+94,non-specified,0,NON-AG,0,N
+95,non-specified,0,NON-AG,0,N
+96,non-specified,0,NON-AG,0,N
+97,non-specified,0,NON-AG,0,N
+98,non-specified,0,NON-AG,0,N
+99,non-specified,0,NON-AG,0,N
+100,non-specified,0,NON-AG,0,N
+101,non-specified,0,NON-AG,0,N
+102,non-specified,0,NON-AG,0,N
+103,non-specified,0,NON-AG,0,N
+104,non-specified,0,NON-AG,0,N
+105,non-specified,0,NON-AG,0,N
+106,non-specified,0,NON-AG,0,N
+107,non-specified,0,NON-AG,0,N
+108,non-specified,0,NON-AG,0,N
+109,non-specified,0,NON-AG,0,N
+110,non-specified,0,NON-AG,0,N
+111,Open Water,0,NON-AG,0,N
+112,Perennial Ice/Snow,0,NON-AG,0,N
+113,non-specified,0,NON-AG,0,N
+114,non-specified,0,NON-AG,0,N
+115,non-specified,0,NON-AG,0,N
+116,non-specified,0,NON-AG,0,N
+117,non-specified,0,NON-AG,0,N
+118,non-specified,0,NON-AG,0,N
+119,non-specified,0,NON-AG,0,N
+120,non-specified,0,NON-AG,0,N
+121,Developed/Open Space,0,NON-AG,0,N
+122,Developed/Low Intensity,0,NON-AG,0,N
+123,Developed/Med Intensity,0,NON-AG,0,N
+124,Developed/High Intensity,0,NON-AG,0,N
+125,non-specified,0,NON-AG,0,N
+126,non-specified,0,NON-AG,0,N
+127,non-specified,0,NON-AG,0,N
+128,non-specified,0,NON-AG,0,N
+129,non-specified,0,NON-AG,0,N
+130,non-specified,0,NON-AG,0,N
+131,Barren,0,NON-AG,0,N
+132,non-specified,0,NON-AG,0,N
+133,non-specified,0,NON-AG,0,N
+134,non-specified,0,NON-AG,0,N
+135,non-specified,0,NON-AG,0,N
+136,non-specified,0,NON-AG,0,N
+137,non-specified,0,NON-AG,0,N
+138,non-specified,0,NON-AG,0,N
+139,non-specified,0,NON-AG,0,N
+140,non-specified,0,NON-AG,0,N
+141,Deciduous Forest,0,NON-AG,0,N
+142,Evergreen Forest,0,NON-AG,0,N
+143,Mixed Forest,0,NON-AG,0,N
+144,non-specified,0,NON-AG,0,N
+145,non-specified,0,NON-AG,0,N
+146,non-specified,0,NON-AG,0,N
+147,non-specified,0,NON-AG,0,N
+148,non-specified,0,NON-AG,0,N
+149,non-specified,0,NON-AG,0,N
+150,non-specified,0,NON-AG,0,N
+151,non-specified,0,NON-AG,0,N
+152,Shrubland,0,NON-AG,0,N
+153,non-specified,0,NON-AG,0,N
+154,non-specified,0,NON-AG,0,N
+155,non-specified,0,NON-AG,0,N
+156,non-specified,0,NON-AG,0,N
+157,non-specified,0,NON-AG,0,N
+158,non-specified,0,NON-AG,0,N
+159,non-specified,0,NON-AG,0,N
+160,non-specified,0,NON-AG,0,N
+161,non-specified,0,NON-AG,0,N
+162,non-specified,0,NON-AG,0,N
+163,non-specified,0,NON-AG,0,N
+164,non-specified,0,NON-AG,0,N
+165,non-specified,0,NON-AG,0,N
+166,non-specified,0,NON-AG,0,N
+167,non-specified,0,NON-AG,0,N
+168,non-specified,0,NON-AG,0,N
+169,non-specified,0,NON-AG,0,N
+170,non-specified,0,NON-AG,0,N
+171,non-specified,0,NON-AG,0,N
+172,non-specified,0,NON-AG,0,N
+173,non-specified,0,NON-AG,0,N
+174,non-specified,0,NON-AG,0,N
+175,non-specified,0,NON-AG,0,N
+176,Grass/Pasture,0,NON-AG,0,N
+177,non-specified,0,NON-AG,0,N
+178,non-specified,0,NON-AG,0,N
+179,non-specified,0,NON-AG,0,N
+180,non-specified,0,NON-AG,0,N
+181,non-specified,0,NON-AG,0,N
+182,non-specified,0,NON-AG,0,N
+183,non-specified,0,NON-AG,0,N
+184,non-specified,0,NON-AG,0,N
+185,non-specified,0,NON-AG,0,N
+186,non-specified,0,NON-AG,0,N
+187,non-specified,0,NON-AG,0,N
+188,non-specified,0,NON-AG,0,N
+189,non-specified,0,NON-AG,0,N
+190,Woody Wetlands,0,NON-AG,0,N
+191,non-specified,0,NON-AG,0,N
+192,non-specified,0,NON-AG,0,N
+193,non-specified,0,NON-AG,0,N
+194,non-specified,0,NON-AG,0,N
+195,Herbaceous Wetlands,0,NON-AG,0,N
+196,non-specified,0,NON-AG,0,N
+197,non-specified,0,NON-AG,0,N
+198,non-specified,0,NON-AG,0,N
+199,non-specified,0,NON-AG,0,N
+200,non-specified,0,NON-AG,0,N
+201,non-specified,0,NON-AG,0,N
+202,non-specified,0,NON-AG,0,N
+203,non-specified,0,NON-AG,0,N
+215,non-specified,0,NON-AG,0,N
+228,non-specified,0,NON-AG,0,N
+251,non-specified,0,NON-AG,0,N
+252,non-specified,0,NON-AG,0,N
+253,non-specified,0,NON-AG,0,N
+37,Other Hay/Non Alfalfa,0,NON-AG,0,N
+1,Corn,1,POACEAE,1,A
+12,Sweet Corn,1,POACEAE,1,A
+13,Pop or Orn Corn,1,POACEAE,1,A
+3,Rice,2,POACEAE,1,A
+4,Sorghum,3,POACEAE,1,A
+21,Barley,4,POACEAE,1,A
+23,Spring Wheat,5,POACEAE,1,A
+24,Winter Wheat,5,POACEAE,1,A
+30,Speltz,5,POACEAE,1,A
+27,Rye,6,POACEAE,1,A
+28,Oat,7,POACEAE,1,A
+29,Millet,8,POACEAE,1,A
+45,Sugarcane,9,POACEAE,1,P
+25,Other Small Grains,10,POACEAE,1,A
+59,Sod/Grass Seed,11,POACEAE,1,P
+60,Switchgrass,12,POACEAE,1,P
+205,Triticale,13,POACEAE,1,A
+22,Durum Wheat,14,POACEAE,1,A
+42,Dry Bean,20,FABACEAE,2,A
+5,Soybean,21,FABACEAE,2,A
+10,Peanut,22,FABACEAE,2,A
+36,Alfalfa,23,FABACEAE,2,M
+51,Chick Pea,24,FABACEAE,2,A
+52,Lentil,25,FABACEAE,2,A
+53,Pea,26,FABACEAE,2,A
+224,Vetch,28,FABACEAE,2,A
+55,Caneberry,30,ROSACEAE,3,P
+66,Cherry,31,ROSACEAE,3,P
+67,Peach,32,ROSACEAE,3,P
+218,Nectarine,32,ROSACEAE,3,P
+68,Apple,33,ROSACEAE,3,P
+75,Almond,34,ROSACEAE,3,P
+77,Pear,35,ROSACEAE,3,P
+210,Prune,36,ROSACEAE,3,P
+220,Plum,37,ROSACEAE,3,P
+223,Apricot,38,ROSACEAE,3,P
+221,Strawberry,39,ROSACEAE,3,M
+31,Canola,41,BRASSICACEAE,4,A
+34,Rape Seed,41,BRASSICACEAE,4,A
+35,Mustard,43,BRASSICACEAE,4,A
+38,Camelina,44,BRASSICACEAE,4,A
+214,Broccoli,46,BRASSICACEAE,4,A
+243,Cabbage,46,BRASSICACEAE,4,A
+244,Cauliflower,46,BRASSICACEAE,4,A
+246,Radish,47,BRASSICACEAE,4,A
+247,Turnip,48,BRASSICACEAE,4,A
+48,Watermelon,51,CUCURBITACEAE,5,A
+50,Cucumber,52,CUCURBITACEAE,5,A
+209,Cantaloupe,53,CUCURBITACEAE,5,A
+213,Honeydew Melon,53,CUCURBITACEAE,5,A
+222,Squash,55,CUCURBITACEAE,5,A
+229,Pumpkin,55,CUCURBITACEAE,5,A
+249,Gourd,57,CUCURBITACEAE,5,A
+11,Tobacco,61,SOLANACEAE,6,A
+43,Potato,62,SOLANACEAE,6,A
+54,Tomato,63,SOLANACEAE,6,A
+216,Pepper,64,SOLANACEAE,6,A
+248,Eggplant,65,SOLANACEAE,6,A
+6,Sunflower,71,ASTERACEAE,7,A
+33,Safflower,72,ASTERACEAE,7,A
+227,Lettuce,73,ASTERACEAE,7,A
+49,Onion,81,AMARYLLIDACEAE,8,A
+208,Garlic,82,AMARYLLIDACEAE,8,A
+72,Citrus,91,RUTACEAE,9,P
+212,Orange,92,RUTACEAE,9,P
+74,Pecan,101,JUGLANDACEAE,10,P
+76,Walnut,102,JUGLANDACEAE,10,P
+206,Carrot,111,APIACEAE,11,A
+245,Celery,112,APIACEAE,11,A
+242,Blueberry,121,ERICACEAE,12,P
+250,Cranberry,122,ERICACEAE,12,P
+2,Cotton,131,MALVACEAE,31,A
+14,Mint,132,LAMIACEAE,32,A
+32,Flaxseed,133,LINACEAE,33,A
+39,Buckwheat,134,POLYGONACEAE,34,A
+41,Sugarbeet,135,AMARANTHACEAE,35,A
+46,Sweet Potato,136,CONVOLVULACEAE,36,A
+56,Hop,137,CANNABACEAE,37,P
+69,Grape,138,VITACEAE,38,P
+204,Pistachio,139,ANACARDIACEAE,39,P
+207,Asparagus,140,ASPARAGACEAE,40,M
+217,Pomegranate,141,PRUNICACEAE,41,P
+211,Olive,142,OLEACEAE,42,P
+70,Christmas Tree,150,PINACEAE,50,P
+44,Other Crops,192,UNDEFINED,19,A
+47,Misc Vegs & Fruits,193,UNDEFINED,19,P
+57,Herbs,194,UNDEFINED,19,P
+71,Other Tree Crops,195,UNDEFINED,19,P
+219,Greens,196,UNDEFINED,19,A
+58,Clover/Wildflowers,197,UNDEFINED,19,P
+26,Dbl Crop WinWht/Soybeans,201,DOUBLE-CROP,20,A
+225,Dbl Crop WinWht/Corn,202,DOUBLE-CROP,20,A
+226,Dbl Crop Oats/Corn,203,DOUBLE-CROP,20,A
+230,Dbl Crop Lettuce/Durum Wht,204,DOUBLE-CROP,20,A
+231,Dbl Crop Lettuce/Cantaloupe,205,DOUBLE-CROP,20,A
+232,Dbl Crop Lettuce/Cotton,206,DOUBLE-CROP,20,A
+233,Dbl Crop Lettuce/Barley,207,DOUBLE-CROP,20,A
+234,Dbl Crop Durum Wht/Sorghum,208,DOUBLE-CROP,20,A
+235,Dbl Crop Barley/Sorghum,209,DOUBLE-CROP,20,A
+236,Dbl Crop WinWht/Sorghum,210,DOUBLE-CROP,20,A
+237,Dbl Crop Barley/Corn,211,DOUBLE-CROP,20,A
+238,Dbl Crop WinWht/Cotton,212,DOUBLE-CROP,20,A
+239,Dbl Crop Soybeans/Cotton,213,DOUBLE-CROP,20,A
+240,Dbl Crop Soybeans/Oats,214,DOUBLE-CROP,20,A
+241,Dbl Crop Corn/Soybeans,215,DOUBLE-CROP,20,A
+254,Dbl Crop Barley/Soybeans,216,DOUBLE-CROP,20,A
