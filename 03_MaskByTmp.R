@@ -17,7 +17,7 @@ f <- function(x,y){
 # output file names and folder
 mname <- paste0("CDL", 2008:2017, 'RCM.tif')
 mpath <- "D:/ReclMaskedData/"
-dir.create(masked.path)
+dir.create(mpath)
 
 # run in parallel
 beginCluster()
