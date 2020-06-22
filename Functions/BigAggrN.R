@@ -1,4 +1,3 @@
-#### FUNCTION CODE ####
 BigAggrN <- function(x, fact, filename = '', ...){
   
   # output resolution

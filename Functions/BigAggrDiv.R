@@ -1,4 +1,3 @@
-#### FUNCTION CODE ####
 BigAggrDiv <- function(x, fact, m, filename = '', ...){
   m <- apply(m, 2, as.character)
   # output resolution
