@@ -4,8 +4,8 @@
 library(raster) 
 library(data.table)
 
-source('functions/Aggr.R')
-source('functions/BigAggrTmp.R')
+source('Functions/Aggr.R')
+source('Functions/BigAggrTmp.R')
 
 Tpath <- "D:/TmpDivData"
 Dt = raster(file.path(Tpath,"TmpDiv.tif"))
