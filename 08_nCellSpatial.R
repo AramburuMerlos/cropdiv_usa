@@ -36,7 +36,8 @@ bf <- which(facts >= 1000)
 for (f in sf){   
   for (i in 1:10){
     aggr(rl[[i]], fact = facts[f], fun = function(x, ...) sum(!is.na(x)),
-         filename = file.path(npath, outnames[(f-1)*10+i]), 
+         filename = file.path(npath, outnames[(f-1)*10+i]),
+         options = c("COMPRESS=Deflate","PREDICTOR=1","ZLEVEL=6"),
          progress = 'text', NAflag = 0, overwrite = TRUE)
   }
 }
