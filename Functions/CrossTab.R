@@ -1,4 +1,4 @@
-CrossTab <- function(x, y, long = T, digits = 2, x_digits = digits, y_digits = digits, ...) {
+CrossTab <- function(x, y, digits = 2, x_digits = digits, y_digits = digits, ...) {
   
   if(!compareRaster(x,y)) stop ("x and y rasters don't match")
   
@@ -30,15 +30,9 @@ CrossTab <- function(x, y, long = T, digits = 2, x_digits = digits, y_digits = d
   }
   pbClose(pb)
   DT <- DT[freq != 0,]
-  
-  if(long){
-    cn <- c(deparse(substitute(x)), deparse(substitute(y)))
-    setnames(DT, old = c("x", "y"), new = cn)
-  } else {
-    DT <- dcast(DT, x ~ y, value.var = "freq")
-    cn <- deparse(substitute(x))
-    setnames(DT, old = "x", new = cn)
-  }
+  cn <- c(deparse(substitute(x)), deparse(substitute(y)))
+  setnames(DT, old = c("x", "y"), new = cn)
+ 
   return(DT)
 }
     
