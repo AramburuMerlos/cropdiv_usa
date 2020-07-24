@@ -21,7 +21,7 @@ all.equal(nres, gres) # if FALSE stop and check that rasters match
 nrasters <- lapply(nnames, raster) 
 nvalues <- lapply(nrasters, getValues)
 gDT[,n:= unlist(nvalues)]
-rm(ndts, nvalues, nrasters, nnames, npath, nresols, nDT)
+rm(nvalues, nrasters, nnames, npath)
 
 # ncell thresholds
 th = fread('PorcAreaThreshold.csv')
