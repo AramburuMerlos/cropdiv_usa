@@ -100,36 +100,36 @@ dir.create(figpath)
   #Delete file if it exists
   if(file.exists(figfn)) file.remove(figfn)
   png(filename = figfn, units = 'in', 
-      width = 18, height = 18, type = "cairo", res = 300)
+      width = 6, height = 6, type = "cairo", res = 900)
   
   { #run this line to get plots in R 
-    par(mfrow = c(4,4), mgp = c(0,1.4,0), 
-        las = 1, mar = c(2,2,1,1), oma = c(4,4,0,0))
+    par(mfrow = c(4,4), mgp = c(0,0.5,0), 
+        las = 1, mar = c(1,1,0.5,0.5), oma = c(1,1,0,0))
     for (i in 1:length(dfs)){             
       maxy <- if(i < 6) 6 else if (i < 14) 8 else 16
       plot(1, axes = F, type = "n", xlim = c(0, 20), 
            ylim = c(1, maxy), ylab = "", xlab = "")
       axis(side = 1, at = seq(0, 20, 2), pos = 1, 
-           lwd = 1, cex.axis = 1.7, tcl = -0.5)
+             lwd = 1, cex.axis = 0.9, tcl = -0.3)
       axis(side = 2, at = if(i < 14) 1:maxy else seq(1, 16, 3),
-           pos = 0, lwd = 1, cex.axis = 1.7, tcl = -0.5)
+           pos = 0, lwd = 1, cex.axis = 0.9, tcl = -0.3)
       axis(side = 3, at = seq(0, 20, 2), tick = T, lwd.ticks = 0, 
            labels = F, pos = maxy, lwd = 1)
       axis(side = 4, at = if(i < 14) 1:maxy else seq(1, 16, 3),
            tick = T, lwd.ticks = 0, labels = F, pos = 20, lwd = 1)
       mtext(paste(resols[i]/1000, 'km'), 
-            side = 3, adj = 0.94, line = -3.2, cex = 1.6)
+            side = 3, adj = 0.92, line = -1.5, cex = 0.8)
       clip(0, 20, 1, maxy)
       nr = nrow(dfs[[i]])
       bw = transparency(nr, cluster = nr > 1000)
-      if(nr > 50000){
-        xy = dfs[[i]][sample(1:nr, 50000),]
+      if(nr > 30000){
+        xy = dfs[[i]][sample(1:nr, 30000),]
       }else{
         xy = dfs[[i]]
       }
       
       points(xy$p * 100, xy$d, pch = 21, col = bw,
-             cex = if(nr > 1000) 0.8 else if(nr > 100) 1.2 else 2)
+             cex = if(nr > 1000) 0.6 else if(nr > 100) 0.8 else 1)
       
       reg = regs[regs$Resol_m == resols[i],]
       cols = c(colorRamps::blue2red(nrow(reg))[nrow(reg):2], 'dark blue')
@@ -147,8 +147,8 @@ dir.create(figpath)
         abline (v = final_th$Threshold_p[i]*100, col = 'green3', lty = 1, lwd = 2)
       }  
     }
-    mtext(side = 1, "Crop Area (%)", line = 1.8, cex = 2, outer = T )
-    mtext(side = 2, expression(italic('D')[gamma]), line = 1.5, las = 0, cex = 2, outer = T)
+    mtext(side = 1, "Crop Area (%)", line = 1.8, cex = 0.7, outer = T )
+    mtext(side = 2, expression(italic('D')[gamma]), line = 1.5, las = 0, cex = 0.7, outer = T)
   } # end of plot
   dev.off()
 } # end saving fig to folder

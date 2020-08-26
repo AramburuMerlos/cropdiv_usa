@@ -137,13 +137,13 @@ MSD[,(SDSD + LCS + SB)-MSD] # difference because of rounding problems
 # complete plot ################
 
 { # run this line to save fig to folder
-  fig.file = "Plots/scale_dependency.png"
+  fig.file = "Plots/scale_dependency.pdf"
   #Delete file if it exists
   if(file.exists(fig.file)) file.remove(fig.file)
-  png(filename = fig.file, units = 'cm', width = 11.4, height = 5.7, 
-      pointsize = 8, type = "cairo", res = 300)
+  pdf(file = fig.file, width = 11.4/2.54, height = 5.5/2.54, 
+      pointsize = 8)
   { # run this line to get plot in R
-    par(mfrow = c(1,2), mar = c(3,3,2,2), oma = c(0,0,0,1), las = 1)
+    par(mfrow = c(1,2), mar = c(3,2,1,2), oma = c(0,1,0,1), las = 1)
     for(i in 1:2){
       x <- log10((DTavg$res)^2/10000)
       xr = c(floor(min(x)), ceiling(max(x)))
@@ -156,14 +156,14 @@ MSD[,(SDSD + LCS + SB)-MSD] # difference because of rounding problems
       axis(side = 2, at = pretty(yr), pos = xr[1], lwd = 1, cex.axis = 0.8, tcl = -0.5)
       axis(side = 3, at = pretty(xr), tick = T, lwd.ticks = 0, labels = F, pos = yr[2], lwd = 1)
       axis(side = 4, at = pretty(yr), tick = T, lwd.ticks = 0, labels = F, pos = xr[2], lwd = 1)
-      mtext(LETTERS[i], 3, -1.8, adj = 0.9, cex = 1.3)
+      mtext(LETTERS[i], 3, -1.5, adj = 0.9, cex = 1.1)
       clip(xr[1],xr[2], yr[1], yr[2])
       if(i == 1){
         points(x,DTavg$g, pch = 16, cex = 1)
         lines(x,DTavg$g, lwd = 1)
         abline(h = usa_Dt, lwd = 1, lty = 2, col = 'dark red')
-        mtext(side = 1, 'Area (ha)', line = 2, cex = 1.1)
-        mtext(side = 2, expression(italic('D')), line = 1.5, cex = 1.1, las = 0)
+        mtext(side = 1, 'Area (ha)', line = 2, cex = 1)
+        mtext(side = 2, expression(italic('D')), line = 1.5, cex = 1, las = 0)
         legend(xr[1],yr[2], legend = c(expression(bar(paste(italic('D'),gamma))), 
                                        expression(bar(paste(italic('D'),tau)))), 
                cex = 1, lty = c(1,2), pch = c(16, NA), 
@@ -174,11 +174,11 @@ MSD[,(SDSD + LCS + SB)-MSD] # difference because of rounding problems
         lines(x,sqrt(MSD$MSD), lwd = 1.5, lty = 1, col = cols[1])
         #lines(x,sqrt(MSD$SB), lwd = 1.5, lty = 2, col = cols[2])
         #lines(x,sqrt(MSD$SDSD), lwd = 1.5, lty = 3, col = cols[3])
-        mtext(side = 1, 'Area (ha)', line = 2, cex = 1.1)
+        mtext(side = 1, 'Area (ha)', line = 2, cex = 1)
         mtext(side = 2, expression(paste(italic('RMSD'))),#' , ', 
                                          #italic('Bias'),' , ', 
                                          #Delta['SD'])), 
-              line = 1.5, cex = 1.1, las = 0)
+              line = 1.5, cex = 1, las = 0)
         legend(xr[1],yr[2], cex = .8, lty = 1:4, col = cols, 
                adj = .05, seg.len = 1.5, 
                legend = c(expression(italic("RMSD")),
@@ -190,7 +190,7 @@ MSD[,(SDSD + LCS + SB)-MSD] # difference because of rounding problems
         plot(1, axes = F, type = "n", xlim = xr, ylim = c(0,2), xlab = "", ylab = "")
         axis(side = 4, at = pretty(c(0,2)), pos = xr[2], lwd = 1, cex.axis = 0.8, tcl = -0.5)
         lines(x,1- MSD$r, lwd = 1.5, lty = 2, col = cols[2])#lty = 4, col = cols[4])
-        mtext(side = 4, expression(paste('1 - ',italic('r'))), line = 1.7, cex = 1.1,las = 0)
+        mtext(side = 4, expression(paste('1 - ',italic('r'))), line = 1.7, cex = 1,las = 0)
       }
     }
   }
@@ -220,7 +220,7 @@ DTavg_b
   fig.file = "Plots/scale_beta.png"
   #Delete file if it exists
   if(file.exists(fig.file)) file.remove(fig.file)
-  png(filename = fig.file, units = 'in', width = 3.5, height = 3.5, type = "cairo", res = 300)
+  png(filename = fig.file, units = 'in', width = 3.5, height = 3.5, type = "cairo", res = 900)
   { # run this line to get plot in R
     par(mfrow = c(1,1), mar = c(3,3,2,2), oma = c(0,0,0,0), las = 1)
     yr = c(1,10)
@@ -244,8 +244,8 @@ DTavg_b
     points(x,DTavg_b$b, pch = 24, cex = 1.2, bg = 'dark red')
     lines(x,DTavg_b$b, lwd = 1.5, lty = 1, col = 'dark red')
     abline(h = usa_a, lwd = 1, lty = 2, col = 'dark blue')
-    mtext(side = 1, 'Area (ha)', line = 2, cex = 1.1)
-    mtext(side = 2, expression(italic('D')), line = 1.5, cex = 1.1, las = 0)
+    mtext(side = 1, 'Area (ha)', line = 2, cex = 1)
+    mtext(side = 2, expression(italic('D')), line = 1.5, cex = 1, las = 0)
     legend(min(xr),max(yr), lwd = 1.5, cex = 1, lty = c(1,2,1), pch = c(16,NA, 24), 
            col = c('black','dark blue', 'dark red'), pt.bg = c('dark red'), adj = .05, seg.len = 1.5,
            legend = c(expression(gamma), expression(alpha), expression(beta))) 

@@ -91,14 +91,13 @@ setorder(d, Db)
 d[, Db:= round(Db, 2)]
 
 { # run this line to save fig to folder
-  fig.file = "Plots/Dt(fx)DCounty.png"
+  fig.file = "Plots/Dt(fx)DCounty.pdf"
   #Delete file if it exists
   if(file.exists(fig.file)) file.remove(fig.file)
 #  png(filename = fig.file, units = 'cm', width = 17.8, 
 #      height = 5, type = "cairo", res = 300, pointsize = 9)
 
-  png(filename = fig.file, units = 'cm', width = 11.4, 
-      height = 5, type = "cairo", res = 300, pointsize = 9)
+  pdf(file = fig.file, width = 11.4/2.54, height = 5/2.54, pointsize = 9)
   
   { #run this line to get plots in R 
     #par(mfrow = c(1,3), mgp = c(0,1,0), mar = c(2,2,1,1), oma = c(2,2,0,0), las = 1)

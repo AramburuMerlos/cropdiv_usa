@@ -6,7 +6,7 @@ library(colorRamps)
 
 # Temporal Diversity ########
 
-# Dt at 3960 m resolution 
+# Dt at 1980 m resolution 
 Dt <- raster('D:/TmpDivData/Dt_0003960m.tif')
 lcam <- raster('D:/LowCropAreaMask/lcam_0003960m.tif')
 Dt_m <- mask(Dt, lcam)
@@ -15,39 +15,43 @@ Dt_m <- mask(Dt, lcam)
 m6 <- Dt_m > 6.5
 Dt_m <- mask(Dt_m, m6, maskvalue = TRUE, updatevalue = 6.5)
 
-# Dt with pereniials masked 
+# Dt with perenials masked 
 DtPM <- raster('D:/PerennialMask/Dt_3960m_PM.tif')
 DtPM_m <- mask(DtPM, lcam)
 
 m6 <- DtPM_m > 6.5
 DtPM_m <- mask(DtPM_m, m6, maskvalue = TRUE, updatevalue = 6.5)
 
-maiw = (11.4/2.54 - ncol(Dt_m)/300)/2
-
 # polygon with states 
 states <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
 states <- st_transform(states, crs(Dt_m))
 states <- as_Spatial(states)
 
+# resolution to get a figure of 8.7cm width and 4 points per grid cell. 
+restif <- floor((ncol(Dt_m) / 8.7 * 2.54)) * 2
+
+
 { # run this line to save plot 
   fgfn = ('Plots/Dt_maps.tif')
-  tiff(filename = fgfn, width = (11.4/2.54*300), height = nrow(Dt_m)*2, 
-       type = "cairo", res = 300, compression = "zip")
+  tiff(filename = fgfn, width = ncol(Dt_m) * 2, 
+       height = nrow(Dt_m) * 4, 
+       type = "cairo", res = restif, 
+       compression = "zip")
   {
-    par(mai = c(0,maiw,0,maiw), mfrow = c(2,1))
+    par(mai = c(0,0,0,0), mfrow = c(2,1))
     brks = c(1,seq(1.1,3.5,0.2),seq(3.7,5.7,0.5),6.5)
     cols = rev(matlab.like2(length(brks)-1))
     a.args = list(at = 1:6, labels = c(as.character(1:5),'\u2265 6'), 
-                  cex.axis = 0.65, line = -1, lty = 0)
+                  cex.axis = 0.5, line = -1.2, lty = 0)
     l.args = list(text = expression(paste(italic('D'),tau)), side = 3, 
-                  font = 1, line = 0.2, cex = 1, adj = 0.5)
+                  font = 1, line = 0.2, cex = 0.8, adj = 0.5)
     image(Dt_m, axes = FALSE, breaks = brks, col = cols, xlab = "", ylab = "", 
           maxpixels = ncell(Dt_m))
-    mtext('A',line = -2, adj = 0.85, cex = 1)
+    mtext('A',line = -2, adj = 0.85, cex = 0.8)
     plot(states, lwd = 0.5, add = T)
     image(DtPM_m, axes = FALSE, breaks = brks, col = cols, xlab = "", ylab = "", 
           maxpixels = ncell(DtPM_m))
-    mtext('B',line = -2, adj = 0.85, cex = 1)
+    mtext('B',line = -2, adj = 0.85, cex = 0.8)
     plot(states, lwd = 0.5, add = T)
     par(new = T, fig = c(0.02,0.38,0.545,0.562))
     plot(DtPM_m, legend.only = TRUE, legend.width = 0.8, axis.args = a.args, 
@@ -84,7 +88,7 @@ ar = ncol(Dsp_m[[1]])/nrow(Dsp_m[[1]])
 {
   fgfn = ('Plots/Dspatial_maps.tif')
   tiff(filename = fgfn, width = 17.8, height = (17.8-1.27)/ar, unit = 'cm', 
-       type = "cairo", res = 300, compression = "zip")
+       type = "cairo", res = 900, compression = "zip")
   {
     par(mfrow = c(2,2), mar = c(0,0,0,0), omi = c(0,0,0,0.5), xpd =T)
     for(i in 1:length(Dsp_m)){
@@ -135,26 +139,30 @@ subtitles <- list(bquote(25091 ~ ha ~ "| 392 ha"),
                   bquote(25091 ~ ha ~ "| 392 ha"),
                   bquote(401449 ~ ha ~ "| 392 ha"))
 
+# aspect.ratio (width/height)
+ar = ncol(DaDb[[1]])/nrow(DaDb[[1]])
+
 {
   fgfn = ('Plots/Da_Db_maps.tif')
-  tiff(filename = fgfn, width = ncol(DaDb[[1]])*32, height = nrow(DaDb[[1]])*32,
-       type = "cairo", res = 300, compression = "zip")
+  tiff(filename = fgfn, width = 6.5, height = 6.5/ar, units = 'in',
+       type = "cairo", res = 900, compression = "zip")
   {
-    par(mfrow = c(2,2), mar = c(0,0,6,12))
+    par(mfrow = c(2,2), mar = c(0,0,1,1), xpd = T)
     for(i in 1:length(DaDb)){
       brks = c(1,seq(1.1,3.5,0.2),seq(3.7,5.7,0.5),6.5)
       cols = rev(matlab.like2(length(brks)-1))
       image(DaDb[[i]], axes = FALSE, breaks = brks, col = cols, 
             xlab = "", ylab = "", maxpixels = ncell(DaDb[[i]]))
-      plot(states, lwd =1.5, add = T)  
-      mtext(titles[[i]], cex = 3, line = -1.9, adj = 0.68 + (i %% 2)/100)
-      mtext(subtitles[[i]], cex = 2, line = -2.4, adj = 0.9)
+      plot(states, lwd = 1, add = T)  
+      mtext(titles[[i]], cex = 0.9, line = -0.4, adj = 0.68 + (i %% 2)/100)
+      mtext(subtitles[[i]], cex = 0.7, line = -1.5, adj = 0.9)
       if(i == 1){
         a.args = list(at = 1:6, labels = c(as.character(1:5),'\u2265 6'),
-                      cex.axis = 3, line = 1)
-        l.args = list(text = 'Diversity', side = 3, adj = 0.3, line = 1, cex = 2.5)
+                      cex.axis = 0.8, line = 0)
+        l.args = list(text = expression(italic("D")), 
+                      side = 3, adj = 0.5, line = 0.2, cex = 1)
         plot(DaDb[[2]], legend.only = TRUE, axis.args = a.args, legend.args = l.args,
-             col = cols, breaks = brks, smallplot = c(0.9,.93,0,0.45))
+             col = cols, breaks = brks, smallplot = c(0.9,.93,0,0.4))
       }  
     }
   }

@@ -79,8 +79,8 @@ m3960 <- raster("D:/LowCropAreaMask/lcam_0003960m.tif")
 
 # Figure with 8 maps 
 {
-  tiff(filename = "Plots/CropAreaMaps.tif", width = 8.5, height = 11, units = 'in', 
-       type = "cairo", res = 300, compression = "zip")
+  tiff(filename = "Plots/CropAreaMaps.tif", width = 6, height = 7.77, units = 'in', 
+       type = "cairo", res = 900, compression = "zip")
   {
     par(mfrow = c(4, 2) , mar = rep(0,4))
     cols <- RColorBrewer::brewer.pal(8, 'Greens')
@@ -92,11 +92,11 @@ m3960 <- raster("D:/LowCropAreaMask/lcam_0003960m.tif")
       ri <- mask(ri, m3960)
       image(ri, axes = FALSE, col = cols, xlab = "", ylab = "", maxpixels = ncell(ri))
       plot(states, lwd =1.5, add = T)
-      mtext(crops$Name[i], cex = 1.2, adj = 0.9, side = 3 , line = -2)
+      mtext(crops$Name[i], cex = 1, adj = 0.9, side = 3 , line = -2)
     }
-    par(new = T, fig = c(0.45, 0.6, 0, 0.05), xpd = T)
-    l.args = list(text = 'Crop Area \n(% of Cropland)', side = 3, line = 0.8, cex = 0.9, adj = 0.5)
-    plot(ri, legend.only = TRUE, legend.width = 0.6, axis.args = list(cex.axis = 0.9), 
+    par(new = T, fig = c(0.42, 0.62, 0.01, 0.06), xpd = T, mgp = c(3, 0, 0))
+    l.args = list(text = 'Crop Area \n(% of Cropland)', side = 3, line = 0.5, cex = 0.7, adj = 0.2)
+    plot(ri, legend.only = TRUE, legend.width = 1, axis.args = list(cex.axis = .9, line = 0), 
          legend.shrink= 1, col = cols, legend.args = l.args, 
          horizontal = T, smallplot = c(0,1,0.5,.8))
   }

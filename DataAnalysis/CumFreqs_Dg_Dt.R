@@ -71,11 +71,10 @@ gDT[floor(g) == 2 & res_m == 15840,][1,]
 ##### PLOT #####
 { # run this line to save fig to folder
   set.seed(0)
-  fig.file = "Plots/CumFreqs.png"
+  fig.file = "Plots/CumFreqs.pdf"
   #Delete file if it exists
   if(file.exists(fig.file)) file.remove(fig.file)
-  png(filename = fig.file, units = 'cm', width = 11.4, height = 5.7, 
-      pointsize = 8, type = "cairo", res = 300)
+  pdf(file = fig.file, width = 11.4/2.54, height = 5.7/2.54, pointsize = 8)
   
   { #run this line to get plots in R 
     par(mfrow = c(1,2), mgp = c(0,0.8,0), las = 1, 
@@ -86,12 +85,6 @@ gDT[floor(g) == 2 & res_m == 15840,][1,]
     for(p in 1:2){
       ylab = expression('Cumulative Relative Frequency')
       plot(1, axes = FALSE, type = "n", xlim = xr, ylim = yr, ylab = "", xlab = "")
-      axis(side = 1, at = pretty(xr), pos = yr[1], lwd = 1, cex.axis = 0.9)
-      axis(side = 2, at = pretty(yr), pos = xr[1], lwd =1, las = 1, cex.axis = 0.9)
-      axis(side = 3, at = pretty(xr), pos = yr[2], lwd = 1, lwd.ticks = 0, labels = F)
-      axis(side = 4, at = pretty(yr), pos = xr[2], lwd = 1, lwd.ticks = 0, labels = F)
-      mtext(LETTERS[p], line = -1.8, adj = 0.06, cex = 1.3)
-      if(p==1) mtext(text = ylab, side = 2, line = 1.5, las = 0)
       clip(xr[1], xr[2], yr[1], yr[2])
       abline(h = seq(yr[1], yr[2], length.out = 11)[2:10], col = 'grey80', lty = 3)
       abline(v = seq(xr[1], xr[2], length.out = 9)[2:8], col = 'grey80', lty = 3)
@@ -128,6 +121,12 @@ gDT[floor(g) == 2 & res_m == 15840,][1,]
                col = c('black', 'gray10'), bty = 'n', lwd = 1.3)
       }
       mtext(text = xlab, side = 1, line = 1.3, adj = 0.5)
+      axis(side = 1, at = pretty(xr), pos = yr[1], lwd = 1, cex.axis = 0.9)
+      axis(side = 2, at = pretty(yr), pos = xr[1], lwd =1, las = 1, cex.axis = 0.9)
+      axis(side = 3, at = pretty(xr), pos = yr[2], lwd = 1, lwd.ticks = 0, labels = F)
+      axis(side = 4, at = pretty(yr), pos = xr[2], lwd = 1, lwd.ticks = 0, labels = F)
+      mtext(LETTERS[p], line = -1.8, adj = 0.06, cex = 1.3)
+      if(p==1) mtext(text = ylab, side = 2, line = 1.5, las = 0)
     }
   }
   dev.off()

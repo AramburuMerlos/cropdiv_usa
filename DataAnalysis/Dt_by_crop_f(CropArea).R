@@ -55,11 +55,10 @@ fitted2 <- fitted2[order(fitted2$x),]
 # complete plot ####
 # plot
 { # run this line to save fig to folder
-  fig.file = "Plots/CropDt_f(CropArea).png"
+  fig.file = "Plots/CropDt_f(CropArea).pdf"
   #Delete file if it exists
   if(file.exists(fig.file)) file.remove(fig.file)
-  png(filename = fig.file, units = 'cm', width = 11.4, 
-      height = (11.4-(2.54*1.5)), type = "cairo", res = 300)
+  pdf(file = fig.file, width = 11.4/2.54, height = (11.4/2.54 - 1.5))
   { # run here to get plot in R
     par(mfrow = c(1,1), mai = c(0.8,0.5,0,1.8), oma = c(0,0,0,0), las = 1, xpd = T)
     xr = c(-7,0)

@@ -45,10 +45,10 @@ rmse/mean(x)*100
   fig.file <- paste0("Plots/CensusVsCDL_", index, ".png")
   #Delete file if it exist
   if(file.exists(fig.file)) file.remove(fig.file)
-  png(filename = fig.file, units = 'in', width = 5, height = 5, type = "cairo", res = 300)
+  png(filename = fig.file, units = 'in', width = 3.5, height = 3.5, type = "cairo", res = 900)
   
   { #run this line to get plot in R 
-    par(pty = "s", mgp = c(0,0.8,0.8), las = 1)
+    par(pty = "s", mgp = c(0,0.8,0.8), mar = c(3.5,3.5,0.5,0.5), las = 1)
     maxy <- ceiling(max(y))
     plot(1, axes = F, type = "n", xlim = c(0,maxy), ylim = c(0,maxy), ylab = "", xlab = "")
     axis(side = 1, at = pretty(c(0,maxy)), pos = 0, lwd = 2)
@@ -56,11 +56,11 @@ rmse/mean(x)*100
     axis(side = 3, at = pretty(c(0,maxy)), tick = T, lwd.ticks = 0, labels = F, pos = maxy, lwd = 2)
     axis(side = 4, at = pretty(c(0,maxy)), tick = T, lwd.ticks = 0, labels = F, pos = maxy, lwd = 2)
     if(index == "H"){
-      mtext(side = 1, expression(italic(H)['(USDA Census)']) , line = 1.4)
-      mtext(side = 2, expression(italic(H)['(Crop Data Layer)']), line = 1.4, las = 0)
+      mtext(side = 1, expression(italic(H)['(USDA Census)']) , line = 2)
+      mtext(side = 2, expression(italic(H)['(Crop Data Layer)']), line = 2, las = 0)
     } else{
-      mtext(side = 1, expression(italic(D)['(USDA Census)']) , line = 1.4)
-      mtext(side = 2, expression(italic(D)['(Crop Data Layer)']), line = 1.4, las = 0)
+      mtext(side = 1, expression(italic(D)['(USDA Census)']) , line = 2)
+      mtext(side = 2, expression(italic(D)['(Crop Data Layer)']), line = 2, las = 0)
     }
     points(x,y, pch = 21, cex = 0.5, col = "#00000080")
     lines(c(0:maxy),c(0:maxy), col = "red", lty = 3, lwd = 2)
@@ -71,8 +71,8 @@ rmse/mean(x)*100
     lines(newx, preds[,3], col = "dark blue", lty = 2)
     
     text(maxy*0.45,maxy*0.1, pos = 4, label = paste("y =",coef[1], "+", paste0(coef[2], "x"),
-                                                   "\nRMSE = ", round(rmse,3), "\n"))
-    text(maxy*0.45,maxy*0.05, pos = 4, bquote(R^2 == .(round(r2, 3))))
+                                                   "\nRMSE = ", round(rmse,3), "\n"), cex = 0.9)
+    text(maxy*0.45,maxy*0.05, pos = 4, bquote(R^2 == .(round(r2, 3))), cex = 0.9)
   } # end of plot
   dev.off()
 } # end saving fig to folder
