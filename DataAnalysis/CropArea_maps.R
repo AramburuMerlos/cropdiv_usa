@@ -4,7 +4,7 @@ library(data.table)
 
 # Crop Frequencies ####################################
 
-rnames <- Sys.glob("D:/ReclMaskedData/CDL*RCM.tif")
+rnames <- Sys.glob("D:/cropdiv_usa/ReclMaskedData/CDL*RCM.tif")
 rlist <- lapply(rnames, raster)
 ny <- length(rlist)
 dtlist <- vector(mode = 'list', length = ny)
@@ -75,7 +75,7 @@ states <- st_transform(states, crs(r))
 states <- as_Spatial(states)
 
 # crop area mask
-m3960 <- raster("D:/LowCropAreaMask/lcam_0003960m.tif")
+m3960 <- raster("D:/cropdiv_usa/LowCropAreaMask/lcam_0003960m.tif")
 
 # Figure with 8 maps 
 {
@@ -87,7 +87,7 @@ m3960 <- raster("D:/LowCropAreaMask/lcam_0003960m.tif")
     for (i in 1:nrow(crops)){
       vali <- rep(NA, ncell(r))
       DTi <- DT[crop == crops$crop[i]]
-      vali[DTi$outcell] <- DTi$prop
+      vali[DTi$outcell] <- DTi$prop * 100
       ri <- setValues(r, vali)
       ri <- mask(ri, m3960)
       image(ri, axes = FALSE, col = cols, xlab = "", ylab = "", maxpixels = ncell(ri))

@@ -3,8 +3,8 @@
 library(raster)
 library(lspline)
 
-gpath <- "D:/GammaDiversity"
-npath <- "D:/nCellSpatial"
+gpath <- "D:/cropdiv_usa/GammaDiversity"
+npath <- "D:/cropdiv_usa/nCellSpatial"
 
 gfn <- Sys.glob(file.path(gpath, '*Mean.tif'))
 gl <- lapply(gfn, raster)
@@ -104,7 +104,7 @@ dir.create(figpath)
   
   { #run this line to get plots in R 
     par(mfrow = c(4,4), mgp = c(0,0.5,0), 
-        las = 1, mar = c(1,1,0.5,0.5), oma = c(1,1,0,0))
+        las = 1, mar = c(1,1,0.5,0.5), oma = c(2,2,0,0))
     for (i in 1:length(dfs)){             
       maxy <- if(i < 6) 6 else if (i < 14) 8 else 16
       plot(1, axes = F, type = "n", xlim = c(0, 20), 
@@ -147,8 +147,8 @@ dir.create(figpath)
         abline (v = final_th$Threshold_p[i]*100, col = 'green3', lty = 1, lwd = 2)
       }  
     }
-    mtext(side = 1, "Crop Area (%)", line = 1.8, cex = 0.7, outer = T )
-    mtext(side = 2, expression(italic('D')[gamma]), line = 1.5, las = 0, cex = 0.7, outer = T)
+    mtext(side = 1, "Crop Area (%)", line = 0.9, cex = 1, outer = T )
+    mtext(side = 2, expression(italic('D')[gamma]), line = 0.6, las = 0, cex = 1, outer = T)
   } # end of plot
   dev.off()
 } # end saving fig to folder

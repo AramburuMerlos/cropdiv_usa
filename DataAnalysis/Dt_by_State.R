@@ -2,7 +2,7 @@ library(raster)
 library(data.table)
 source("Functions/CrossTab.R")
 
-Dt <- raster("D:/TmpDivData/TmpDiv.tif")
+Dt <- raster("D:/cropdiv_usa/TmpDivData/TmpDiv.tif")
 states <- raster("D:/USrasterized/StatesFP_30m.tif")
 d <- CrossTab(states, Dt) 
 fwrite(d, "Results/Dt_by_State.csv")

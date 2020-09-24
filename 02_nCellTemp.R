@@ -2,8 +2,8 @@
 library(raster)
 library(snow)
 
-Rpath <- "D:/ReclData"
-ntpath <- "D:/nCellTemp"
+Rpath <- "D:/cropdiv_usa/ReclData"
+ntpath <- "D:/cropdiv_usa/nCellTemp"
 dir.create(ntpath)
 fn <- Sys.glob(file.path(Rpath,'*.tif'))
 rl <- lapply(fn,raster)

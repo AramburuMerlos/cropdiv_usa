@@ -2,7 +2,7 @@ library(raster)
 library(data.table)
 
 # gamma #####
-gpath <- "D:/GammaDiversity"
+gpath <- "D:/cropdiv_usa/GammaDiversity"
 gnames <- Sys.glob(file.path(gpath, "*Mean.tif"))
 gres <- as.numeric(gsub(paste0(gpath, '/Dg_'), '', 
                         sub('m_Mean.tif', '', gnames)))
@@ -16,7 +16,7 @@ DT[, cellN:= seq_len(.N), by = res_m]
 rm(gdts, gvalues, grasters, gnames, gpath)
 
 # temporal #####
-tpath <- "D:/TmpDivData"
+tpath <- "D:/cropdiv_usa/TmpDivData"
 tnames <- Sys.glob(file.path(tpath, "*Dt*.tif"))
 tres <- as.numeric(gsub(paste0(tpath, '/Dt_'), '', sub('m.tif', '', tnames)))
 all.equal(tres, gres) # if FALSE stop and check that rasters match
@@ -26,7 +26,7 @@ DT[,t:= unlist(tvalues)]
 rm(tvalues, trasters, tnames, tpath, tres)
 
 # nCell #####
-npath <- 'D:/nCellSpatial'
+npath <- 'D:/cropdiv_usa/nCellSpatial'
 nnames <- Sys.glob(file.path(npath, "*Mean.tif"))
 nres <- as.numeric(gsub(paste0(npath, '/n_'), '', sub('m_Mean.tif', '', nnames)))
 all.equal(nres, gres) # if FALSE stop and check that rasters match
@@ -36,7 +36,7 @@ DT[,n:= unlist(nvalues)]
 rm(nvalues, nrasters, nnames, npath, nres)
 
 # alpha SU = 1980 ##########
-apath <- "D:/AlphaDiversity"
+apath <- "D:/cropdiv_usa/AlphaDiversity"
 anames <- Sys.glob(file.path(apath, "*1980m_Mean.tif"))
 ares <- as.numeric(gsub(paste0(apath, '/Da_'), '', 
                         sub('km_1980m_Mean.tif', '', anames)))
@@ -49,7 +49,7 @@ DTab[, cellN:= seq_len(.N), by = res_km]
 rm(adts, avalues, arasters, anames, apath)
 
 # beta SU = 1980 ############
-bpath <- 'D:/BetaDiversity'
+bpath <- 'D:/cropdiv_usa/BetaDiversity'
 bnames <- Sys.glob(file.path(bpath, "*1980m_Mean.tif"))
 bres <- as.numeric(gsub(paste0(bpath, '/Db_'), '', sub('km_1980m_Mean.tif', '', bnames)))
 all.equal(ares, bres) # if FALSE stop and check that rasters match
@@ -198,8 +198,8 @@ MSD[,(SDSD + LCS + SB)-MSD] # difference because of rounding problems
 }
 
 # Da of the whole USA using 1980m res sampling units
-da2 <- data.table(g = getValues(raster('D:/GammaDiversity/Dg_0001980m_Mean.tif')),
-                  n = getValues(raster('D:/nCellSpatial/n_0001980m_Mean.tif')))
+da2 <- data.table(g = getValues(raster('D:/cropdiv_usa/GammaDiversity/Dg_0001980m_Mean.tif')),
+                  n = getValues(raster('D:/cropdiv_usa/nCellSpatial/n_0001980m_Mean.tif')))
 da2 <- da2[n > th$Threshold_n[th$Resol_m == 1980],]
 usa_a <- da2[,exp(sum(log(g) * n/(sum(n))))]
 

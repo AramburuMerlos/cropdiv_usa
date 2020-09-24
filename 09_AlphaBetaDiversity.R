@@ -13,7 +13,7 @@ res_m <- paste0(formatC(res_m,
 
 # Dg raster
 # gamma diversity rasters listed by resolution
-gpath <- 'D:/GammaDiversity'
+gpath <- 'D:/cropdiv_usa/GammaDiversity'
 gfn <- lapply(res_m, function(res) Sys.glob(file.path(gpath, 
                                                       paste0('*',res,'*.tif'))))
 
@@ -23,7 +23,7 @@ gfn <- lapply(gfn, no_mean)
 gdr <- lapply(gfn, function(x) lapply(x, raster))
 
 # ncell rasters
-npath <- 'D:/nCellSpatial'
+npath <- 'D:/cropdiv_usa/nCellSpatial'
 
 nfn <- lapply(res_m, function(res) Sys.glob(file.path(npath, 
                                                     paste0('*',res,'*.tif'))))
@@ -52,10 +52,10 @@ afn_inc <- do.call(paste, dc_args)
 afn <- paste0(afn_inc, '.tif')
 bfn <- gsub("Da", "Db", afn)
 
-apath <- 'D:/AlphaDiversity'
+apath <- 'D:/cropdiv_usa/AlphaDiversity'
 dir.create(apath)
 
-bpath <- 'D:/BetaDiversity'
+bpath <- 'D:/cropdiv_usa/BetaDiversity'
 dir.create(bpath)
 
 # loop for total area resolution over

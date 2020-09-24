@@ -3,8 +3,8 @@ library(data.table)
 source("Functions/CrossTab.R")
 
 # Dt freqs by crop #########
-Dt <- raster("D:/TmpDivData/TmpDiv.tif")
-rnames <- paste0("D:/ReclMaskedData/CDL", 
+Dt <- raster("D:/cropdiv_usa/TmpDivData/TmpDiv.tif")
+rnames <- paste0("D:/cropdiv_usa/ReclMaskedData/CDL", 
                  2008:2017, 
                  "RCM.tif")
 rlist <- lapply(rnames, raster)

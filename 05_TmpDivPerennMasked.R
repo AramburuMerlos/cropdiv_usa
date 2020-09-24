@@ -1,9 +1,9 @@
 library(raster)
 library(snow)
 
-Rpath <-"D:/ReclMaskedData"
-Tpath <- "D:/TmpDivData"
-PMpath <- "D:/PerennialMask"
+Rpath <-"D:/cropdiv_usa/ReclMaskedData"
+Tpath <- "D:/cropdiv_usa/TmpDivData"
+PMpath <- "D:/cropdiv_usa/PerennialMask"
 dir.create(PMpath)
 
 # Create mask ----

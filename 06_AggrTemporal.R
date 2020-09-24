@@ -7,7 +7,7 @@ library(data.table)
 source('Functions/Aggr.R')
 source('Functions/BigAggrTmp.R')
 
-Tpath <- "D:/TmpDivData"
+Tpath <- "D:/cropdiv_usa/TmpDivData"
 Dt = raster(file.path(Tpath,"TmpDiv.tif"))
 
 # aggregation factors and final resolutions
@@ -41,7 +41,7 @@ for (i in bf){
 }
 
 # Perennials Masked ------
-PMpath <- "D:/PerennialMask"
+PMpath <- "D:/cropdiv_usa/PerennialMask"
 Dt_pm <- raster(file.path(PMpath,"TmpDivPM.tif"))
 
 facts_pm <- c(33 * 2^(0:2)) #only 1, 2 and 4km

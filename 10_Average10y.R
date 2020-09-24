@@ -10,7 +10,7 @@ f2 <- function(x,w) log(x) * w
 f3 <- function(x) if (all(is.na(x))) NA_real_ else exp(sum(x, na.rm = T))
 
 # upload ncell (weight factor)
-npath <- 'D:/nCellSpatial'
+npath <- 'D:/cropdiv_usa/nCellSpatial'
 nfn <- Sys.glob(file.path(npath, '*.tif'))
 nfn <- no_mean(nfn)
 nCells <- lapply(nfn, raster)
@@ -19,7 +19,7 @@ n_res_km <- formatC(round(as.numeric(n_res_m) / 1000),
                     width = 4, format = 'd', flag = '0')
 
 # Gamma ----
-gpath <- 'D:/GammaDiversity'
+gpath <- 'D:/cropdiv_usa/GammaDiversity'
 gfn <- Sys.glob(file.path(gpath, '*.tif'))
 gfn <- no_mean(gfn)
 
@@ -72,8 +72,8 @@ for (i in lr){
 }
 
 # Alpha and Beta -----
-apath <- 'D:/AlphaDiversity'
-bpath <- 'D:/BetaDiversity'
+apath <- 'D:/cropdiv_usa/AlphaDiversity'
+bpath <- 'D:/cropdiv_usa/BetaDiversity'
 
 afn <- Sys.glob(file.path(apath, '*.tif'))
 afn <- no_mean(afn)

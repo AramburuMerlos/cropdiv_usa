@@ -1,4 +1,5 @@
 # Download USDA-NASS Crop Data Layers from the web ----
+## this is done much faster in a web browser
 
 # years to download 
 yy <- formatC(08:17, width = 2, format = "d", flag = "0")

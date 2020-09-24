@@ -7,8 +7,8 @@ library(colorRamps)
 # Temporal Diversity ########
 
 # Dt at 1980 m resolution 
-Dt <- raster('D:/TmpDivData/Dt_0003960m.tif')
-lcam <- raster('D:/LowCropAreaMask/lcam_0003960m.tif')
+Dt <- raster('D:/cropdiv_usa/TmpDivData/Dt_0003960m.tif')
+lcam <- raster('D:/cropdiv_usa/LowCropAreaMask/lcam_0003960m.tif')
 Dt_m <- mask(Dt, lcam)
 
 # limit all values up to 6.5 (for scale bar)
@@ -16,7 +16,7 @@ m6 <- Dt_m > 6.5
 Dt_m <- mask(Dt_m, m6, maskvalue = TRUE, updatevalue = 6.5)
 
 # Dt with perenials masked 
-DtPM <- raster('D:/PerennialMask/Dt_3960m_PM.tif')
+DtPM <- raster('D:/cropdiv_usa/PerennialMask/Dt_3960m_PM.tif')
 DtPM_m <- mask(DtPM, lcam)
 
 m6 <- DtPM_m > 6.5
@@ -27,31 +27,31 @@ states <- st_as_sf(map("state", plot = FALSE, fill = TRUE))
 states <- st_transform(states, crs(Dt_m))
 states <- as_Spatial(states)
 
-# resolution to get a figure of 8.7cm width and 4 points per grid cell. 
-restif <- floor((ncol(Dt_m) / 8.7 * 2.54)) * 2
+# resolution to get a figure of 8.7cm (with 0.5cm margins) width and 4 points per grid cell. 
+restif <- floor((ncol(Dt_m) / (8.7 - 1) * 2.54)) * 2
 
 
 { # run this line to save plot 
   fgfn = ('Plots/Dt_maps.tif')
   tiff(filename = fgfn, width = ncol(Dt_m) * 2, 
-       height = nrow(Dt_m) * 4, 
+       height = round(nrow(Dt_m) * 4 - 1/2.54 * restif), 
        type = "cairo", res = restif, 
        compression = "zip")
   {
-    par(mai = c(0,0,0,0), mfrow = c(2,1))
+    par(mai = c(0,.5/2.54,0,.5/2.54), mfrow = c(2,1))
     brks = c(1,seq(1.1,3.5,0.2),seq(3.7,5.7,0.5),6.5)
     cols = rev(matlab.like2(length(brks)-1))
     a.args = list(at = 1:6, labels = c(as.character(1:5),'\u2265 6'), 
-                  cex.axis = 0.5, line = -1.2, lty = 0)
+                  cex.axis = 0.35, line = -1.45, lty = 0)
     l.args = list(text = expression(paste(italic('D'),tau)), side = 3, 
-                  font = 1, line = 0.2, cex = 0.8, adj = 0.5)
+                  font = 1, line = 0.1, cex = 0.6, adj = 0.5)
     image(Dt_m, axes = FALSE, breaks = brks, col = cols, xlab = "", ylab = "", 
           maxpixels = ncell(Dt_m))
-    mtext('A',line = -2, adj = 0.85, cex = 0.8)
+    mtext('A',line = -1, adj = 0, cex = .9, outer = T)
     plot(states, lwd = 0.5, add = T)
     image(DtPM_m, axes = FALSE, breaks = brks, col = cols, xlab = "", ylab = "", 
           maxpixels = ncell(DtPM_m))
-    mtext('B',line = -2, adj = 0.85, cex = 0.8)
+    mtext('B',line = -8, adj = 0, cex = .9, outer = T)
     plot(states, lwd = 0.5, add = T)
     par(new = T, fig = c(0.02,0.38,0.545,0.562))
     plot(DtPM_m, legend.only = TRUE, legend.width = 0.8, axis.args = a.args, 
@@ -66,14 +66,14 @@ restif <- floor((ncol(Dt_m) / 8.7 * 2.54)) * 2
 # SPATIAL DIVERSITY ########
 
 # 4 pannels 660, 1320, 3960, 15840m 
-afn <- paste0('D:/AlphaDiversity/Da_0016km_',
+afn <- paste0('D:/cropdiv_usa/AlphaDiversity/Da_0016km_',
               formatC(c(660, 1320, 3960), width = 4, flag = 0)
               , 'm_Mean.tif')
-gfn <- paste0('D:/GammaDiversity/Dg_0015840m_Mean.tif')
+gfn <- paste0('D:/cropdiv_usa/GammaDiversity/Dg_0015840m_Mean.tif')
 fn <- c(afn, gfn)
 Dsp <- lapply(fn, raster)
 
-lcam16k <- raster('D:/LowCropAreaMask/lcam_0015840m.tif')
+lcam16k <- raster('D:/cropdiv_usa/LowCropAreaMask/lcam_0015840m.tif')
 Dsp_m <- lapply(Dsp, mask, mask = lcam16k)
 
 # limit all values up to 6.5 (for scale bar)
@@ -114,12 +114,12 @@ ar = ncol(Dsp_m[[1]])/nrow(Dsp_m[[1]])
 
 
 # Alpha and Beta Diversity ###### 
-fn <-  paste0(rep(c('D:/AlphaDiversity/Da_', 'D:/BetaDiversity/Db_'), each = 2), 
-              rep(c("0016km", "0063km"),2), 
-              '_1980m_Mean.tif')
+fn <-  paste0(rep(c('D:/cropdiv_usa/AlphaDiversity/Da_', 
+                    'D:/cropdiv_usa/BetaDiversity/Db_'), 
+                  each = 2), rep(c("0016km", "0063km"),2), '_1980m_Mean.tif')
 DaDb <- lapply(fn, raster)
-masks <- lapply(c("D:/LowCropAreaMask/lcam_0015840m.tif",
-                  "D:/LowCropAreaMask/lcam_0063360m.tif"),
+masks <- lapply(c("D:/cropdiv_usa/LowCropAreaMask/lcam_0015840m.tif",
+                  "D:/cropdiv_usa/LowCropAreaMask/lcam_0063360m.tif"),
                 raster)
 DaDb <- mapply(function(d,m) mask(d,m), d = DaDb, m = masks)
 

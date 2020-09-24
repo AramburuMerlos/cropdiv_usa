@@ -3,8 +3,8 @@ path <- "D:/USrasterized"
 dir.create(path)
 
 # rasters to use as model
-r30m <- raster("D:/TmpDivData/TmpDiv.tif")
-r1320m <- raster("D:/GammaDiversity/Dg_0001320m_Mean.tif")
+r30m <- raster("D:/cropdiv_usa/TmpDivData/TmpDiv.tif")
+r1320m <- raster("D:/cropdiv_usa/GammaDiversity/Dg_0001320m_Mean.tif")
 
 # keep only conterminous US (remove States by FIPS codes)
 rmst <- formatC(c(02, 15, 60, 66, 69, 72, 78), width = 2, format = 'd', flag = 0)

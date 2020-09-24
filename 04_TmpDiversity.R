@@ -3,9 +3,9 @@ library(raster)
 library(snow)
 
 # paths
-TmpDivPath <- "D:/TmpDivData"
+TmpDivPath <- "D:/cropdiv_usa/TmpDivData"
 dir.create(TmpDivPath)
-RcMDpath <-"D:/ReclMaskedData"
+RcMDpath <-"D:/cropdiv_usa/ReclMaskedData"
 
 # reclassified and masked (6y) CDL
 CDLfs <- Sys.glob(path = file.path(RcMDpath, '*.tif'))

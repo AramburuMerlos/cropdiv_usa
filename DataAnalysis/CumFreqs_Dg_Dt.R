@@ -2,7 +2,7 @@ library(data.table)
 library(raster)
 
 # gamma #####
-gpath <- "D:/GammaDiversity"
+gpath <- "D:/cropdiv_usa/GammaDiversity"
 gnames <- Sys.glob(file.path(gpath, "*Mean.tif"))
 gres <- as.numeric(gsub(paste0(gpath, '/Dg_'), '', 
                         sub('m_Mean.tif', '', gnames)))
@@ -14,7 +14,7 @@ gDT <- rbindlist(gdts)
 rm(gdts, gvalues, grasters, gnames, gpath)
 
 # nCell #####
-npath <- 'D:/nCellSpatial'
+npath <- 'D:/cropdiv_usa/nCellSpatial'
 nnames <- Sys.glob(file.path(npath, "*Mean.tif"))
 nres <- as.numeric(gsub(paste0(npath, '/n_'), '', sub('m_Mean.tif', '', nnames)))
 all.equal(nres, gres) # if FALSE stop and check that rasters match
@@ -78,7 +78,7 @@ gDT[floor(g) == 2 & res_m == 15840,][1,]
   
   { #run this line to get plots in R 
     par(mfrow = c(1,2), mgp = c(0,0.8,0), las = 1, 
-        mar = c(3,3,0.5,0.5), pty = 's')
+        mar = c(2.3,3,1.2,0.5), pty = 's')
     xr = c(0,8)
     yr = c(0,1)
     cols = viridis::plasma(length(gres), begin = 0.05, end = 0.95, direction = -1)
@@ -86,8 +86,8 @@ gDT[floor(g) == 2 & res_m == 15840,][1,]
       ylab = expression('Cumulative Relative Frequency')
       plot(1, axes = FALSE, type = "n", xlim = xr, ylim = yr, ylab = "", xlab = "")
       clip(xr[1], xr[2], yr[1], yr[2])
-      abline(h = seq(yr[1], yr[2], length.out = 11)[2:10], col = 'grey80', lty = 3)
-      abline(v = seq(xr[1], xr[2], length.out = 9)[2:8], col = 'grey80', lty = 3)
+      #abline(h = seq(yr[1], yr[2], length.out = 11)[2:10], col = 'grey80', lty = 3)
+      #abline(v = seq(xr[1], xr[2], length.out = 9)[2:8], col = 'grey80', lty = 3)
       # gamma
       if(p==2){
         xlab = bquote(italic('D')*gamma*"") 
@@ -117,7 +117,7 @@ gDT[floor(g) == 2 & res_m == 15840,][1,]
         legend(x = c(xr[2]*.555, xr[2]), y = c(0, 0.18), 
                legend = c(expression(italic("Diversity")),
                           expression(italic('Richness'))),
-               y.intersp = 1, x.intersp = 1, cex = 0.8, lty = c(1,2), 
+               y.intersp = 1, x.intersp = 1, cex = 0.8, lty = c(1,3), 
                col = c('black', 'gray10'), bty = 'n', lwd = 1.3)
       }
       mtext(text = xlab, side = 1, line = 1.3, adj = 0.5)
@@ -125,7 +125,7 @@ gDT[floor(g) == 2 & res_m == 15840,][1,]
       axis(side = 2, at = pretty(yr), pos = xr[1], lwd =1, las = 1, cex.axis = 0.9)
       axis(side = 3, at = pretty(xr), pos = yr[2], lwd = 1, lwd.ticks = 0, labels = F)
       axis(side = 4, at = pretty(yr), pos = xr[2], lwd = 1, lwd.ticks = 0, labels = F)
-      mtext(LETTERS[p], line = -1.8, adj = 0.06, cex = 1.3)
+      mtext(LETTERS[p], line = 0, adj = -0.2, cex = 1.3, outer = F)
       if(p==1) mtext(text = ylab, side = 2, line = 1.5, las = 0)
     }
   }

@@ -1,7 +1,7 @@
 library(raster)
 library(data.table)
 
-Rpath <- "D:/ReclMaskedData"
+Rpath <- "D:/cropdiv_usa/ReclMaskedData"
 rnames <- Sys.glob(file.path(Rpath, '*.tif'))
 rl <- lapply(rnames, raster)
 names(rl) <- rnames
@@ -9,7 +9,7 @@ names(rl) <- rnames
 source("Functions/Aggr.R")
 source("Functions/BigAggrN.R")
 
-npath <- 'D:/nCellSpatial'
+npath <- 'D:/cropdiv_usa/nCellSpatial'
 dir.create(npath)
 
 # aggregation factors and final resolutions

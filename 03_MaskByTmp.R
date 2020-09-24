@@ -1,11 +1,11 @@
 # mask cells with less than 6 years of agriculture ----------
 library(raster)
 
-Rpath <- "D:/ReclData"
+Rpath <- "D:/cropdiv_usa/ReclData"
 rnames <- Sys.glob(file.path(Rpath,'*.tif'))
 rlist <- lapply(rnames, FUN = raster)
 
-ncellpath <- "D:/nCellTemp"
+ncellpath <- "D:/cropdiv_usa/nCellTemp"
 ncell <- raster(file.path(ncellpath, "nCellTemp.tif"))
 
 # function to mask cells with less than 6 years classified as crop
@@ -16,7 +16,7 @@ f <- function(x,y){
 
 # output file names and folder
 mname <- paste0("CDL", 2008:2017, 'RCM.tif')
-mpath <- "D:/ReclMaskedData/"
+mpath <- "D:/cropdiv_usa/ReclMaskedData/"
 dir.create(mpath)
 
 # run in parallel

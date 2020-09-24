@@ -57,10 +57,10 @@ rmse/mean(x)*100
     axis(side = 4, at = pretty(c(0,maxy)), tick = T, lwd.ticks = 0, labels = F, pos = maxy, lwd = 2)
     if(index == "H"){
       mtext(side = 1, expression(italic(H)['(USDA Census)']) , line = 2)
-      mtext(side = 2, expression(italic(H)['(Crop Data Layer)']), line = 2, las = 0)
+      mtext(side = 2, expression(italic(H)['(CDL)']), line = 2, las = 0)
     } else{
       mtext(side = 1, expression(italic(D)['(USDA Census)']) , line = 2)
-      mtext(side = 2, expression(italic(D)['(Crop Data Layer)']), line = 2, las = 0)
+      mtext(side = 2, expression(italic(D)['(CDL)']), line = 2, las = 0)
     }
     points(x,y, pch = 21, cex = 0.5, col = "#00000080")
     lines(c(0:maxy),c(0:maxy), col = "red", lty = 3, lwd = 2)

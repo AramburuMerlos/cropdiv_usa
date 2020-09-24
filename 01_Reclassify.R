@@ -9,7 +9,7 @@ m <- cbind(t$VALUE, t$ID)
 
 # paths and file names
 CDLpath <- "D:/CDL"
-Rpath <- "D:/ReclData"
+Rpath <- "D:/cropdiv_usa/ReclData"
 dir.create(Rpath)
 
 CDLnames <- paste0(2008:2017, "_30m_cdls.img")

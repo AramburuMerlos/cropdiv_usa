@@ -1,6 +1,6 @@
 library(raster)
 
-npath = 'D:/nCellSpatial'
+npath = 'D:/cropdiv_usa/nCellSpatial'
 nfn <- Sys.glob(file.path(npath, "*Mean.tif"))
 
 ncell <- lapply(nfn, raster)
@@ -10,7 +10,7 @@ th = read.csv('PorcAreaThreshold.csv', stringsAsFactors = FALSE)
 # check if resolutions in th and ncell match
 all.equal(res_m, th$res)
 
-mpath <- 'D:/LowCropAreaMask'
+mpath <- 'D:/cropdiv_usa/LowCropAreaMask'
 dir.create(mpath)
 
 mname <- paste0('lcam_', res_m, '.tif')

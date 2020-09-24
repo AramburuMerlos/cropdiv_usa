@@ -2,7 +2,7 @@ library(raster)
 library(data.table)
 library(Rcpp)
 
-Rpath <- "D:/ReclMaskedData"
+Rpath <- "D:/cropdiv_usa/ReclMaskedData"
 rnames <- Sys.glob(file.path(Rpath, '*.tif'))
 rl <- lapply(rnames, raster)
 names(rl) <- rnames
@@ -14,7 +14,7 @@ source("functions/Aggr.R")
 m <- read.csv('DblCropMatrix.csv')
 m <- unname(as.matrix(m))
 
-gammapath <- 'D:/GammaDiversity'
+gammapath <- 'D:/cropdiv_usa/GammaDiversity'
 dir.create(gammapath)
 
 # aggregation factors and final resolutions
